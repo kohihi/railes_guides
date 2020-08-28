@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  skip_before_filter :verify_authenticity_token  
+
   http_basic_authenticate_with name: "kohi", password: "nihkbj", except:[:index, :show]
 
   def index
