@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  
   http_basic_authenticate_with name: "kohi", password: "nihkbj", only: :destroy
 
   def create
